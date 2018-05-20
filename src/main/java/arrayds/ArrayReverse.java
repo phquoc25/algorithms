@@ -27,6 +27,35 @@ package arrayds;
 
  2 3 4 1
  */
-public class ArrayDS {
+public class ArrayReverse {
 
+    private final int[] array;
+
+    public ArrayReverse(int... numbers)
+    {
+        this.array = numbers;
+    }
+
+    public void reverse()
+    {
+        int arrSize = this.array.length;
+        if (arrSize < 2) {
+            return;
+        }
+
+        int mid = arrSize / 2;
+        for(int i = 0; i < mid; i++) {
+            swap(i, arrSize - i - 1);
+        }
+    }
+
+    private void swap(int i, int j) {
+        int tmp = array[i];
+        array[i] = array[j];
+        array[j] = tmp;
+    }
+
+    public int[] getArray() {
+        return array;
+    }
 }
