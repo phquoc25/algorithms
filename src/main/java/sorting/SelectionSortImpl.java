@@ -1,4 +1,4 @@
-/**
+/*
  *
  * Copyright (C) 2018 Deveryware S.A. All Rights Reserved.
  *
