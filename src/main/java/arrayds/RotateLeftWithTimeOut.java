@@ -35,15 +35,9 @@ public class RotateLeftWithTimeOut implements RotateLeft {
         }
         for (int i = 0; i < d; i++) {
             for (int j = 0; j < arr.length - 1; j++) {
-                swap(arr, j, j + 1);
+                ArraysUtils.swap(arr, j, j + 1);
             }
         }
         return arr;
-    }
-
-    private static void swap(int[] arr, int i, int j) {
-        int tmp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = tmp;
     }
 }
