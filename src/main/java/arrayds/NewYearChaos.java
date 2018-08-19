@@ -61,12 +61,20 @@ public class NewYearChaos {
         }
 
         int nbBribes = 0;
+        boolean swapped = false;
         for (int i = 0; i < qItems.length - 1; i++) {
-            for (int j = i + 1; j < qItems.length; j++) {
-                if (qItems[i] > qItems[j]) {
-                    ArraysUtils.swap(qItems, i, j);
+            for (int j = 0; j < qItems.length - 1; j++) {
+                if (qItems[j] > qItems[j + 1]) {
+                    ArraysUtils.swap(qItems, j, j + 1);
                     nbBribes++;
+                    swapped = true;
                 }
+            }
+            // these lines is to minimize the loop. If there is no swap, the items is sorted.
+            if (swapped) {
+                swapped = false;
+            } else {
+                break;
             }
         }
         return nbBribes;
