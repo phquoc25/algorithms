@@ -54,6 +54,7 @@ public class NewYearChaos {
     }
 
     public int minimumBribes() {
+        // One person can bribe at most two others
         for (int i = qItems.length - 1; i >= 0; i--) {
             if (qItems[i] - 1 - i > 2) {
                 return -1;
@@ -62,6 +63,7 @@ public class NewYearChaos {
 
         int nbBribes = 0;
         boolean swapped = false;
+        // for the normal case, use bubble sort to count the minimum swap
         for (int i = 0; i < qItems.length - 1; i++) {
             for (int j = 0; j < qItems.length - 1; j++) {
                 if (qItems[j] > qItems[j + 1]) {
