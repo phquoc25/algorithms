@@ -62,14 +62,31 @@ public class ArrayManipulation {
         this.queries = queries;
     }
 
-    public int manipulate() {
-        int[] sumArr = new int[this.n];
+    /**
+     * Instead of storing the actual values in the array, you store the difference between the current element and the previous element.
+     * So you add sum to a[p] showing that a[p] is greater than its previous element by sum.
+     * You subtract sum from a[q+1] to show that a[q+1] is less than a[q] by sum (since a[q] was the last element that was added to sum).
+     * By the end of all this, you have an array that shows the difference between every successive element.
+     * By adding all the positive differences, you get the value of the maximum element
+     * @return
+     */
+    public long manipulate() {
+        long[] sumArr = new long[this.n];
         int length = this.queries.length;
+        int from;
+        int to;
+        int sum;
         for (int i = 0; i < length; i++) {
-            for (int j = queries[i][0] - 1; j < queries[i][1]; j++) {
-                sumArr[j] += queries[i][2];
+            from = queries[i][0];
+            to = queries[i][1];
+            sum = queries[i][2];
+            sumArr[from - 1]+= sum;
+
+            if (to < this.n) {
+                sumArr[to]-= sum;
             }
         }
-        return Arrays.stream(sumArr).max().orElse(0);
+
+        return Arrays.stream(sumArr).filter(value -> value > 0).sum();
     }
 }
