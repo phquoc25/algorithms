@@ -18,7 +18,7 @@ public class ArrayManipulationTest {
         };
         arrayManipulation = new ArrayManipulation(n, queries);
         // WHEN
-        int actualResult = arrayManipulation.manipulate();
+        long actualResult = arrayManipulation.manipulate();
         // THEN
         assertThat(actualResult).isEqualTo(200);
     }

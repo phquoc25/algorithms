@@ -46,4 +46,15 @@ public class Person {
     public void setNbOfVehicle(int nbOfVehicle) {
         this.nbOfVehicle = nbOfVehicle;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", nbOfVehicle=" + nbOfVehicle +
+                '}';
+    }
 }
