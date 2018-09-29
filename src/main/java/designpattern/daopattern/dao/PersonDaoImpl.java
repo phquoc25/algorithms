@@ -6,10 +6,11 @@ import java.sql.*;
 import java.util.Optional;
 
 public class PersonDaoImpl implements PersonDao {
-    private static final String INSERT_STATEMENT = "INSERT INTO person (" + Column.FIRST_NAME + ", " + Column.LAST_NAME + ", " + Column.AGE + ", " + Column.NB_OF_VEHICLES + ") values (?, ?, ?, ?)";
-    private static final String DELETE_STATEMENT = "DELETE FROM person where id=?";
-    private static final String SELECT_BY_ID = "SELECT * from person where id=?";
-    private static final String UPDATE_STATEMENT = "UPDATE person set " + Column.FIRST_NAME + "=?, " + Column.LAST_NAME + "=?, " + Column.AGE + "=?, " + Column.NB_OF_VEHICLES + "=? where id=?";
+    private static final String TABLE = "person";
+    private static final String INSERT_STATEMENT = "INSERT INTO " + TABLE + " (" + Column.FIRST_NAME + ", " + Column.LAST_NAME + ", " + Column.AGE + ", " + Column.NB_OF_VEHICLES + ") values (?, ?, ?, ?)";
+    private static final String DELETE_STATEMENT = "DELETE FROM " + TABLE + " where id=?";
+    private static final String SELECT_BY_ID = "SELECT * from " + TABLE + " where id=?";
+    private static final String UPDATE_STATEMENT = "UPDATE " + TABLE + " set " + Column.FIRST_NAME + "=?, " + Column.LAST_NAME + "=?, " + Column.AGE + "=?, " + Column.NB_OF_VEHICLES + "=? where id=?";
 
     enum Column {
         ID,
