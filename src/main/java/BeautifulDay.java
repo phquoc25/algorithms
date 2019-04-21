@@ -1,3 +1,5 @@
+import java.util.Date;
+
 /**
  * Lily likes to play games with integers. She has created a new game where she determines the difference between a number and its reverse.
  * For instance, given the number 12, its reverse is 21. Their difference is 9. The number 120 reversed is 21, and their difference is 99.
@@ -55,5 +57,30 @@ public class BeautifulDay {
             }
         }
         return nbBeautifulDay;
+    }
+
+    public static void main(String[] args) {
+        Date date = new Date();
+        System.out.println(calendarWeekIso(date));
+    }
+
+    public static Long calendarWeekIso (Date inputDate) {
+        Date thisThursday = new Date(inputDate.getYear(), inputDate.getMonth(), inputDate.getDate() - weekday(inputDate) + 4);
+        Date firstOfJan = new Date(thisThursday.getYear(), 0, 1);
+        Date firstThursdayOfYear = new Date(thisThursday.getYear(), 0, 1);
+        while(weekday(firstThursdayOfYear) != 4){
+            firstThursdayOfYear.setDate(firstThursdayOfYear.getDate() + 1);
+        }
+        Date firstMondayOfYear = new Date(firstThursdayOfYear.getYear(), 0, firstThursdayOfYear.getDate() - 3);
+        Long cw = (thisThursday.getTime() - firstMondayOfYear.getTime())/1000/60/60/24/7 + 1;
+        return cw;
+    }
+
+    public static Integer weekday (Date date){
+        int weekday = date.getDay();
+        if(weekday == 0){
+            weekday = 7;
+        }
+        return weekday;
     }
 }
