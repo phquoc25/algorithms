@@ -2,12 +2,23 @@ package dictionariesnhashmap.counttriplets;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CountTripletsSolutionTest {
+    @Test
+    public void countTripletsWithEmptyListShouldReturnZero() {
+        // GIVEN
+        List<Long> arr = new ArrayList<>();
+        long r = 5;
+        // WHEN
+        long nbTriplets = CountTripletsSolution.countTriplets(arr, r);
+        // THEN
+        assertThat(nbTriplets).isEqualTo(0);
+    }
 
     @Test
     public void countTriplets() {
